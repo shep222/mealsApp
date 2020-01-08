@@ -7,7 +7,7 @@ import {
   TouchableOpacity
 } from 'react-native';
 
-import { CATEGORIES } from '../data/dummy-data';
+import { CATEGORIES, MEALS } from '../data/dummy-data';
 import CategoryGridTile from '../components/CatagoryGridTile';
 
 const CategoriesScreen = props => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, Button, StyleSheet, FlatList } from 'react-native';
 
-import { CATEGORIES, MEALS } from '../data/dummy-data'
+import { CATEGORIES, MEALS } from '../data/dummy-data';
 
 const CategoryMealScreen = props => {
     const renderMealItems = itemData => {
@@ -12,8 +12,9 @@ const CategoryMealScreen = props => {
         )
     }
 
-    const catId = props.navigation.getParam('catagoryId');
-    const displayedMeals = MEALS.filter(meal => meal.catagoryId.indexOf(catId) >= 0)
+    const catId = props.navigation.getParam('categoryId');
+    console.log(catId);
+     const displayedMeals = MEALS.filter(meal => meal.categoryIds.indexOf(catId) >= 0)
 
 
   return (
@@ -26,11 +27,12 @@ const CategoryMealScreen = props => {
 };
 
 CategoryMealScreen.navigationOptions = (navigationData) => {
-    const catId = navigationData.navigation.getParam('catagoryId');
+    const catId = navigationData.navigation.getParam('categoryId');
     const selectedCategory = CATEGORIES.find(cat => cat.id === catId);
+    console.log("HERE " +selectedCategory);
 
     return {
-        headerTitle: selectedCategory.title
+         headerTitle: selectedCategory.title
     }
 }
 
